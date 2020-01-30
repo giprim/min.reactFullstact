@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios"
 
 export default class Add extends React.Component {
   constructor(props){
@@ -19,7 +20,7 @@ export default class Add extends React.Component {
   submitForm = (e) =>{
     e.preventDefault();
     let {first, last} = this.state;
-    fetch(`http://localhost:4444/add?first=${first}&last=${last}`)
+    axios.post(`http://localhost:4444/add?first=${first}&last=${last}`)
     .then(response => console.log(response))
     .catch(err => console.error(err))
   }

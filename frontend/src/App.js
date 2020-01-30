@@ -4,7 +4,6 @@ import './App.css';
 import Navbar from "./pages/Navbar";
 import Views from "./pages/view";
 import Add from "./pages/add";
-import Update from "./pages/update";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "jquery/dist/jquery.slim";
@@ -21,7 +20,6 @@ function App() {
         <Switch>
           <Route path="/" exact component={Views} />
           <Route path="/add" exact component={Add}/>
-          <Route path="/alter" exact component={Update}/>
         </Switch>
       </div>
     </Router>

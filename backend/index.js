@@ -56,7 +56,7 @@ createDb();
 createTable();
 
 app.get("/", (req, res) => {
-  let query = "SELECT * FROM mysqlReact.staff";
+  let query = "SELECT * FROM mysqlReact.staff ORDER BY firstName";
   connection.query(query, (err, result) => {
     if (err) {
       res.send(err);
@@ -68,14 +68,25 @@ app.get("/", (req, res) => {
   })
 })
 
-app.get("/add", (req, res) => {
-  let { first, last } = req.query;  
+app.post("/add", (req, res) => {
+  let { first, last } = req.query;
   let query = `INSERT INTO mysqlReact.staff(firstName, lastName) values('${first}', '${last}')`;
   connection.query(query, (err, result) => {
     if (err)
       res.json({ feedback: err });
     else
-      res.send("successful");
+      res.send({ feedback: "successful" });
+  })
+})
+
+app.delete("/delete", (req, res) => {
+  let { id } = req.query;
+  let query = `DELETE FROM mysqlReact.staff WHERE id=${id}`;
+  connection.query(query, (err, result) => {
+    if (err)
+      res.json({ feedback: err });
+    else
+      res.send({ feedback: "successful" });
   })
 })
 

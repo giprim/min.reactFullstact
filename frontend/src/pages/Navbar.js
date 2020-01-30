@@ -22,10 +22,6 @@ export default class Navbar extends React.Component {
               <Link to="/add" className="nav-item nav-link">
                 Add
               </Link>
-              <Link to="/alter" className="nav-item nav-link">
-                Alter
-              </Link>
-              
             </ul>
           </div>
         </div>
